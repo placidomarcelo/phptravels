@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import pages.BookingPage;
 import pages.InvoicePage;
 import pages.LoginPage;
 
@@ -21,14 +22,14 @@ public class InvoiceTest {
 		WebDriver driver;
 		System.setProperty("webdriver.chrome.driver", "/users/pferreira/drivers/chromedriver");
 		driver = new ChromeDriver();
-
+		driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
 		LoginPage loginPage = new LoginPage(driver);
+		BookingPage bookingPage = new BookingPage(driver);
 
 		loginPage.visita();
 		loginPage.autentica("user@phptravels.com", "demouser");
-		driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
-
-		driver.findElement(By.xpath("//div[@id='bookings']//div[2]//div[4]//a[1]")).click();
+		
+		bookingPage.selecionaInvoice();
 		InvoicePage invoicepage = new InvoicePage(driver);
 
 		ArrayList<String> tabHandles = new ArrayList<String>(driver.getWindowHandles());
