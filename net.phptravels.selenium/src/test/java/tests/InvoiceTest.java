@@ -10,6 +10,10 @@ import org.testng.annotations.Test;
 import pages.InvoicePage;
 import pages.LoginPage;
 
+/**
+ * Validate invoice page.
+ */
+
 public class InvoiceTest {
 
 	@Test
@@ -27,18 +31,16 @@ public class InvoiceTest {
 		driver.findElement(By.xpath("//div[@id='bookings']//div[2]//div[4]//a[1]")).click();
 		InvoicePage invoicepage = new InvoicePage(driver);
 
-		// Handle window context by page title
-		// String currentPageHandle = driver.getWindowHandle();
 		ArrayList<String> tabHandles = new ArrayList<String>(driver.getWindowHandles());
 
 		String pageTitle = "Invoice";
-		boolean NewTabFound = false;
+		
 		// Go to the page with the right title!
 		for (String eachHandle : tabHandles) {
 			driver.switchTo().window(eachHandle);
 			if (driver.getTitle().equalsIgnoreCase(pageTitle)) {
 				driver.switchTo().window(eachHandle);
-				NewTabFound = true;
+			
 			}
 		}
 		// Valida Hotel Name
@@ -61,7 +63,6 @@ public class InvoiceTest {
 		
 		//Valida Room
 		
-		
 		//Validar Check In
 		invoicepage.ValidaCheckInDate("10/09/2018");
 		
@@ -69,8 +70,7 @@ public class InvoiceTest {
 		invoicepage.ValidaCheckOutDate("11/09/2018");
 		
 		//Validar Total Stay
-		
-		
+
 		//Validar Deposit Now
 		invoicepage.ValidaDepositNow("USD $27.50");
 		
@@ -80,9 +80,7 @@ public class InvoiceTest {
 		//Valida Total Amount
 		invoicepage.ValidaTotalAmount("USD $275");
 		
-		
-		
-		
+	
 	}
 
 }

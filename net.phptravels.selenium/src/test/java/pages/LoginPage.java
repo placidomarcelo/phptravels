@@ -5,6 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/**
+ * Log in with valid and invalid credentials.
+ */
 
 public class LoginPage {
 
