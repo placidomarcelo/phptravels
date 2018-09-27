@@ -80,8 +80,7 @@ public class InvoiceTest {
 		
 		//Valida Total Amount
 		invoicepage.ValidaTotalAmount("USD $275");
-		
-	
+			
 	}
 
 }
