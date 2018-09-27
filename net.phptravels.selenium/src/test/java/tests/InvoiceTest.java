@@ -2,7 +2,6 @@ package tests;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
@@ -27,7 +26,7 @@ public class InvoiceTest {
 		BookingPage bookingPage = new BookingPage(driver);
 
 		loginPage.visita();
-		loginPage.autentica("user@phptravels.com", "demouser");
+		loginPage.performLogin("user@phptravels.com", "demouser");
 		
 		bookingPage.selecionaInvoice();
 		InvoicePage invoicepage = new InvoicePage(driver);
@@ -44,42 +43,42 @@ public class InvoiceTest {
 			
 			}
 		}
-		// Valida Hotel Name
-		invoicepage.ValidaHotelName(": Rendezvous Hotel");
+		// Validate Hotel Name
+		invoicepage.validateHotelName(": Rendezvous Hotel");
+						
+		//Validate Invoice Date
+		invoicepage.validateInvoiceDate(": 10/09/2018");
 		
-		//Valida Invoice Date
-		invoicepage.ValidaInvoiceDate(": 10/09/2018");
+		//Validate Invoice Due Date
+		invoicepage.validaInvoiceDueDate(": 11/09/2018");
 		
-		//Valida Invoice Due Date
-		invoicepage.ValidaInvoiceDueDate(": 11/09/2018");
+		//Validate Invoice Number
+		invoicepage.validateInvoiceInvoiceNumber(": 114");
 		
-		//Valida Invoice Number
-		invoicepage.ValidaInvoiceInvoiceNumber(": 114");
+		//Validate Booking Code
+		invoicepage.validateBookingCode(": 4259");
 		
-		//Valida Booking Code
-		invoicepage.ValidaBookingCode(": 4259");
-		
-		//Valida Customer Details
+		//Validate Customer Details
 		invoicepage.validateCustomerDetails("JOHNY SMITH", "R2, AVENUE DU MAROC", "123456");
 		
-		//Valida Room
+		//Validate Room
 		
-		//Validar Check In
-		invoicepage.ValidaCheckInDate("10/09/2018");
+		//Validate Check In
+		invoicepage.validateCheckInDate("10/09/2018");
 		
-		//Validar Check Out
-		invoicepage.ValidaCheckOutDate("11/09/2018");
+		//Validate Check Out
+		invoicepage.validateCheckOutDate("11/09/2018");
 		
-		//Validar Total Stay
+		//Validate Total Stay
 
-		//Validar Deposit Now
-		invoicepage.ValidaDepositNow("USD $27.50");
+		//Validate Deposit Now
+		invoicepage.validateDepositNow("USD $27.50");
 		
-		//Valida Tax&Vat
-		invoicepage.ValidaTaxVat("USD $25");
+		//Validate Tax&Vat
+		invoicepage.validateTaxVat("USD $25");
 		
-		//Valida Total Amount
-		invoicepage.ValidaTotalAmount("USD $275");
+		//Validate Total Amount
+		invoicepage.validateTotalAmount("USD $275");
 			
 	}
 

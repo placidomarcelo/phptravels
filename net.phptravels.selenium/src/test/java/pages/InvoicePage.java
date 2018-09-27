@@ -4,7 +4,6 @@ import static org.testng.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,68 +31,65 @@ public class InvoicePage {
 		this.driver = driver;
 	}
 
+	public String retrieveWebElementText(By field) {
+		WebElement element = driver.findElement(field);
+		System.out.println(element.getText());
+		return element.getText();
+	}
+	
 	public void checkPageTitle() {
 		String actualTitle = driver.getTitle();
 		String expectedTitle = "Invoice";
 		assertEquals(expectedTitle, actualTitle);
 	}
 
-	public String HotelName() {
-		WebElement hotel = driver.findElement(hotelName);
-		System.out.println(hotel.getText());
-		return hotel.getText();
+	public String hotelName() {
+		return retrieveWebElementText(hotelName);
+		
 
 	}
 
-	public boolean ValidaHotelName(String HotelName) {
-		return (HotelName == this.HotelName());
+	public void validateHotelName(String hotelName) {
+		assertEquals (hotelName , this.hotelName());
+		
 	}
 
-	public String InvoiceDate() {
-		WebElement invoice = driver.findElement(invoiceDate);
-		System.out.println(invoice.getText());
-		return invoice.getText();
-
+	public String invoiceDate() {
+		return retrieveWebElementText(invoiceDate);
+		
 	}
 
-	public boolean ValidaInvoiceDate(String InvoiceDate) {
-		return (InvoiceDate == this.InvoiceDate());
+	public void validateInvoiceDate(String InvoiceDate) {
+		assertEquals (InvoiceDate , this.invoiceDate());
 	}
 
-	public String InvoiceDueDate() {
-		WebElement invoicedue = driver.findElement(invoiceDueDate);
-		System.out.println(invoicedue.getText());
-		return invoicedue.getText();
+	public String invoiceDueDate() {
+		return retrieveWebElementText(invoiceDueDate);
+	}
+	
 
+	public void validaInvoiceDueDate(String InvoiceDueDate) {
+		assertEquals (InvoiceDueDate , this.invoiceDueDate());
 	}
 
-	public boolean ValidaInvoiceDueDate(String InvoiceDueDate) {
-		return (InvoiceDueDate == this.InvoiceDueDate());
+	public String invoiceNumber() {
+		return retrieveWebElementText(invoiceNumber);
 	}
 
-	public String InvoiceNumber() {
-		WebElement invoicenumber = driver.findElement(invoiceNumber);
-		System.out.println(invoicenumber.getText());
-		return invoicenumber.getText();
-
+	public void validateInvoiceInvoiceNumber(String InvoiceNumber) {
+		assertEquals (InvoiceNumber , this.invoiceDueDate());
 	}
 
-	public boolean ValidaInvoiceInvoiceNumber(String InvoiceNumber) {
-		return (InvoiceNumber == this.InvoiceDueDate());
-	}
-
-	public String BookingCode() {
-		WebElement code = driver.findElement(bookingCode);
-		System.out.println(code.getText());
-		return code.getText();
+	public String bookingCode() {
+		return retrieveWebElementText(bookingCode);
 
 	}
 
-	public boolean ValidaBookingCode(String Booking) {
-		return (Booking == this.BookingCode());
+	public void validateBookingCode(String Booking) {
+		assertEquals (Booking , this.bookingCode());
 	}
 
-	public List<String> CustomerDetails() {
+	public List<String> customerDetails() {
 		List<WebElement> customerdetails = driver.findElements(customerDetails);
 		List<String> list = new ArrayList<String>();
 		for (WebElement a : customerdetails) { // percorre elementos adicionando na 'list' o 'text' deles.
@@ -105,7 +101,7 @@ public class InvoicePage {
 	public void validateCustomerDetails(String name, String address, String number) {
 		boolean boolControl;
 		boolControl = true;
-		for (String stringCustomerDetails : CustomerDetails()) {
+		for (String stringCustomerDetails : customerDetails()) {
 			if (stringCustomerDetails.equals(name) || stringCustomerDetails.equals(address)
 					|| stringCustomerDetails.equals(number)) {
 				continue;
@@ -121,61 +117,51 @@ public class InvoicePage {
 
 	// Criar metodo room e validar room
 
-	public String CheckInDate() {
-		WebElement checkin = driver.findElement(checkInDate);
-		System.out.println(checkin.getText());
-		return checkin.getText();
+	public String checkInDate() {
+		return retrieveWebElementText(checkInDate);
 
 	}
 
-	public boolean ValidaCheckInDate(String checkin) {
-		return (checkin == this.CheckInDate());
+	public void validateCheckInDate(String checkin) {
+		assertEquals (checkin , this.checkInDate());
 	}
 
-	public String CheckOutDate() {
-		WebElement checkout = driver.findElement(checkOutDate);
-		System.out.println(checkout.getText());
-		return checkout.getText();
-
-	}
-
-	public boolean ValidaCheckOutDate(String checkout) {
-		return (checkout == this.CheckOutDate());
-	}
-
-	// Criar metodo Total Stay e validar Total Stay
-
-	public String DepositNow() {
-		WebElement depositnow = driver.findElement(depositNow);
-		System.out.println(depositnow.getText());
-		return depositnow.getText();
+	public String checkOutDate() {
+		return retrieveWebElementText(checkOutDate);
 
 	}
 
-	public boolean ValidaDepositNow(String depositnow) {
-		return (depositnow == this.DepositNow());
+	public void validateCheckOutDate(String checkout) {
+		assertEquals (checkout , this.checkOutDate());
 	}
 
-	public String TaxVat() {
-		WebElement taxvat = driver.findElement(taxVat);
-		System.out.println(taxvat.getText());
-		return taxvat.getText();
+	// Create method Total Stay and validate Total Stay
 
-	}
-
-	public boolean ValidaTaxVat(String taxvat) {
-		return (taxvat == this.TaxVat());
-	}
-
-	public String TotalAmount() {
-		WebElement totalamount = driver.findElement(totalAmount);
-		System.out.println(totalamount.getText());
-		return totalamount.getText();
+	public String depositNow() {
+		return retrieveWebElementText(depositNow);
 
 	}
 
-	public boolean ValidaTotalAmount(String totalamount) {
-		return (totalamount == this.TotalAmount());
+	public void validateDepositNow(String depositnow) {
+		assertEquals (depositnow , this.depositNow());
+	}
+
+	public String taxVat() {
+		return retrieveWebElementText(taxVat);
+
+	}
+
+	public void validateTaxVat(String taxvat) {
+		assertEquals (taxvat , this.taxVat());
+	}
+
+	public String totalAmount() {
+		return retrieveWebElementText(totalAmount);
+
+	}
+
+	public void validateTotalAmount(String totalamount) {
+		assertEquals (totalamount , this.totalAmount());
 	}
 
 }

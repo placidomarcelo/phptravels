@@ -24,7 +24,7 @@ public class login {
 		LoginPage loginPage = new LoginPage(driver);
 		
 		loginPage.visita();
-		loginPage.autentica("user@phptravels.com", "demouser");
+		loginPage.performLogin("user@phptravels.com", "demouser");
 		driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
 
 		AccountPage accountPage = new AccountPage(driver);
@@ -46,7 +46,7 @@ public class login {
 
 		loginPage.visita();
 		driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
-		loginPage.autenticaComFalha(username, password);
+		loginPage.performLoginWithFail(username, password);
 		driver.quit();
 		
 		

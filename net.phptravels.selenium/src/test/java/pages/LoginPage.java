@@ -27,15 +27,15 @@ public class LoginPage {
 		driver.get(url);
 	}
 
-	public void autentica(String usuario, String senha) {
-		driver.findElement(fieldUsername).sendKeys(usuario);
-		driver.findElement(fieldPassword).sendKeys(senha);
+	public void performLogin(String username, String password) {
+		driver.findElement(fieldUsername).sendKeys(username);
+		driver.findElement(fieldPassword).sendKeys(password);
 		driver.findElement(buttonSubmit).click();  
 	}
 	
-	public void autenticaComFalha(String usuario, String senha) {
+	public void performLoginWithFail(String username, String password) {
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.autentica(usuario, senha);
+		loginPage.performLogin(username, password);
 		WebElement mensagemError = driver.findElement(messageloginerror);
 		String mensagem = mensagemError.getText();
 		assertEquals("Invalid Email or Password", mensagem);
