@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
- * The class contains methods to select Invoice.
+ * The class contains methods to select Invoices.
  */
 
 public class BookingPage {
